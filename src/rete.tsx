@@ -1,51 +1,29 @@
-import 'regenerator-runtime/runtime.js';
+import "regenerator-runtime/runtime.js";
 import React, { useState, useEffect, useRef } from "react";
-import {  NodeEditor, Engine  } from "rete";
+import { NodeEditor, Engine } from "rete";
 import ReactRenderPlugin from "rete-react-render-plugin";
 import ConnectionPlugin from "rete-connection-plugin";
 import AreaPlugin from "rete-area-plugin";
 
-import BooleanComponent from './components/Boolean'
-import NumComponent from './components/Number'
-import AddComponent from './components/Add'
+import BooleanComponent from "./components/Boolean";
+import NumComponent from "./components/Number";
+import AddComponent from "./components/Add";
 
-import ReactContextMenu from './ReactContextMenu';
-
-import ContextMenuPlugin, { 
-  ReactMenu,
-} from 'rete-context-menu-plugin';
-
-function Menu(props) {
-  return (
-    <div {...props}>
-      {props.children}
-    </div>
-  )
-}
-
-function Item(props) {
-    return (
-        <div {...props}>
-            {props.children}
-        </div>
-    )
-}
+import ContextMenuPlugin, { ReactMenu } from "rete-context-menu-plugin-react";
 
 export async function createEditor(container) {
   var components = [
     new NumComponent(),
     new AddComponent(),
-    new BooleanComponent()
+    new BooleanComponent(),
   ];
 
   var editor = new NodeEditor("demo@0.1.0", container);
   editor.use(ConnectionPlugin);
   editor.use(ReactRenderPlugin);
-  editor.use(ContextMenuPlugin,
-{
-                Menu: ReactMenu,
-            }
-  );
+  editor.use(ContextMenuPlugin, {
+    Menu: ReactMenu,
+  });
 
   var engine = new Engine("demo@0.1.0");
 
