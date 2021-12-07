@@ -8,6 +8,9 @@ import AreaPlugin from "rete-area-plugin";
 import BooleanComponent from "./components/Boolean";
 import NumComponent from "./components/Number";
 import AddComponent from "./components/Add";
+import StringComponent from "./components/String";
+import ArrayComponent from "./components/Array";
+import ObjectComponent from "./components/Object";
 import ConsoleLogComponent from "./components/ConsoleLog";
 
 import ContextMenuPlugin, { ReactMenu } from "rete-context-menu-plugin-react";
@@ -18,6 +21,9 @@ export async function createEditor(container) {
     new AddComponent(),
     new BooleanComponent(),
     new ConsoleLogComponent(),
+    new StringComponent(),
+    new ArrayComponent(),
+    new ObjectComponent(),
   ];
 
   var editor = new NodeEditor("demo@0.1.0", container);
