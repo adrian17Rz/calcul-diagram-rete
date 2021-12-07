@@ -1,8 +1,7 @@
 import { Component, Output, Socket } from 'rete';
 
 import BooleanControl from '../controls/Boolean'
-
-var boolSocket = new Socket("Boolean value");
+import boolSocket from '../sockets/boolean';
 
 export default class BooleanComponent extends Component {
   constructor() {

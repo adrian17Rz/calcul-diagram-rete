@@ -7,7 +7,7 @@ export default class BooleanControl extends Control {
       ref={(ref) => {
         ref && ref.addEventListener("pointerdown", (e) => e.stopPropagation());
       }}
-      onChange={(e) => onChange(+e.target.value)}
+      onChange={(e) => onChange(e.target.value)}
     >
       <option value="true">true</option>
       <option value="false">false</option>
@@ -16,11 +16,12 @@ export default class BooleanControl extends Control {
 
   constructor(emitter, key, node, readonly = false) {
     super(key);
+    debugger;
     this.emitter = emitter;
     this.key = key;
     this.component = BooleanControl.component;
 
-    const initial = node.data[key] || 0;
+    const initial = node.data[key] || true;
 
     node.data[key] = initial;
     this.props = {
